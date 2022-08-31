@@ -152,11 +152,17 @@ void VoronoiGraphDisplay::processMessage ( const  swarm_robots_msgs::Graph::Cons
         visual.reset ( new VoronoiGraphVisual ( context_->getSceneManager(), scene_node_ ) );
     }
 
+    visual->setPathColor( path_color_property_->getOgreColor() );
+    visual->setPointScale(scale_point_property_->getFloat());
+    visual->setPathStype(path_style_property_->getOptionInt());
+    visual->setPathWidth(path_width_property_->getFloat());
+
+
     visual->setMessage          ( msg );
     visual->setFramePosition    ( position );
     visual->setFrameOrientation ( orientation );
     
-    visual->setPathColor     ( path_color_property_->getOgreColor() );
+
 
     visuals_.push_back ( visual );
 }
